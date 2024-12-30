@@ -1,0 +1,30 @@
+### Test API Root
+GET http://localhost:5000/
+Content-Type: application/json
+
+### Generate Sharing Number (Business)
+POST http://localhost:5000/api/sharing/generate-number
+Content-Type: application/json
+
+{
+    "businessId": "test_business_123",
+    "documentType": "aadhar"
+}
+
+### Share Document (User)
+POST http://localhost:5000/api/sharing/share
+Content-Type: application/json
+Authorization: Bearer YOUR_FIREBASE_ID_TOKEN
+
+{
+    "uniqueNumber": "123456",
+    "documentId": "test_doc_123"
+}
+
+### Get User's Active Shares
+GET http://localhost:5000/api/sharing/shares
+Authorization: Bearer YOUR_FIREBASE_ID_TOKEN
+
+### Revoke Access
+POST http://localhost:5000/api/sharing/revoke/share_id_here
+Authorization: Bearer YOUR_FIREBASE_ID_TOKEN 
